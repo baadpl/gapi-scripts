@@ -15,8 +15,8 @@ def main():
     """Shows basic usage of the Classroom API.
     Prints the names of the first 10 courses the user has access to.
     """
-    global ludzie
-    ludzie = {}
+    global pplz
+    pplz = {}
     creds = None
     # The file token.pickle stores the user's access and refresh tokens, and is
     # created automatically when the authorization flow completes for the first
@@ -46,7 +46,7 @@ def main():
             results = service.userProfiles().get(userId=udi)
             userinfo = results.execute()
             data = userinfo['name']
-            ludzie[key] = data
+            pplz[key] = data
             return data
 
 
@@ -64,7 +64,7 @@ def main():
         print('Zajęcia:')
         for course in courses:
             udi = course['ownerId']
-            n = checkKey(ludzie, udi)
+            n = checkKey(pplz, udi)
             line = course['ownerId']+" | "+n['fullName']+" | "+course["enrollmentCode"]+" | "+course['name']+" | "+course['descriptionHeading']
             print(line)
 
