@@ -11,3 +11,5 @@ pip install --upgrade google-api-python-client google-auth-httplib2 google-auth-
 or run 
 pip install -r req.txt 
 
+output: 
+<img src=https://github.com/baadpl/gapi-scripts/raw/master/screenshot.png> 
