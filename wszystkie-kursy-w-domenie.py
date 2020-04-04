@@ -40,14 +40,14 @@ def main():
     def checkKey(dict, key):
 
         if key in dict.keys(): #if there is key in memory
-            dane = dict[key]
-            return dane
+            data = dict[key]
+            return data
         else:                   #update dictionary
             results = service.userProfiles().get(userId=udi)
             userinfo = results.execute()
-            dane = userinfo['name']
-            ludzie[key] = dane
-            return dane
+            data = userinfo['name']
+            ludzie[key] = data
+            return data
 
 
 
@@ -57,7 +57,7 @@ def main():
 
     results = service.courses().list(pageSize=50).execute()
     courses = results.get('courses', [])
-    dane = []
+    data = []
     if not courses:
         print('Brak widocznych zajęć')
     else:
@@ -65,8 +65,8 @@ def main():
         for course in courses:
             udi = course['ownerId']
             n = checkKey(ludzie, udi)
-            linijka = course['ownerId']+" | "+n['fullName']+" | "+course["enrollmentCode"]+" | "+course['name']+" | "+course['descriptionHeading']
-            print(linijka)
+            line = course['ownerId']+" | "+n['fullName']+" | "+course["enrollmentCode"]+" | "+course['name']+" | "+course['descriptionHeading']
+            print(line)
 
 
 if __name__ == '__main__':
