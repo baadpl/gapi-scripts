@@ -1,5 +1,6 @@
 # gapi-scripts
-Google api 
+Script to list all classes created in classroom by users 
+
 Enable API in classroom 
 https://developers.google.com/drive/api/v3/quickstart/python
 
